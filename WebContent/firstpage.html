@@ -1,0 +1,136 @@
+<html style="background:pink">
+<head>
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
+	<meta charset="UTF-8">
+	<title>bet-calculate</title>
+	</head>
+
+<body>
+	<div id="timeShow" class="time1"></div>
+	<h1 style="text-align:center;">
+		行列式在线计算工具
+    </h1>
+	<p style="text-align:center;">
+		请在下方输入框按顺序输入行列式的所有元素，各元素之间用逗号分开
+		</p>
+	<script type="text/javascript">
+		function calc(form){
+			with(form){
+				if(account.value == ""){
+					alert("请输入行列式!!!");
+					return false;
+				}
+			}
+		}
+		</script>
+	<script type="text/javascript">
+     	var t = null;
+    	t = setTimeout(time,1000);//开始执行
+   		function time()
+		    {
+		       clearTimeout(t);//清除定时器
+		       dt = new Date();
+			   var y=dt.getYear()+1900;
+			   var mm=dt.getMonth()+1;
+			   var d=dt.getDate();
+			   var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+			   var day=dt.getDay();
+	           var h=dt.getHours();
+    	       var m=dt.getMinutes();
+        	   var s=dt.getSeconds();
+				if(h<10){h="0"+h;}
+				if(m<10){m="0"+m;}
+				if(s<10){s="0"+s;}
+		        document.getElementById("timeShow").innerHTML =  ""+y+"年"+mm+"月"+d+"日"+""+weekday[day]+""+h+":"+m+":"+s+"";
+		        t = setTimeout(time,1000); //设定定时器，循环执行
+	    }
+		</script>
+	<form style="text-align:center;height:25px;font-size:26px;" action="TestServlet" method="post" onsubmit="return calc(this);">
+		<input style="text-align:center;height:25px;font-size:26px;" type="text" name="account" size="40"/>
+			${accountErrorString }
+			<br>
+		<input class="btn-blue" type="submit" value="计算" />
+			<br>
+    <p style="text-align:center;height:25px;font-size:26px;">
+			${result}<br>
+            ${errorString}
+		</p>
+		</form>
+
+    <form style="text-align:center;hight:25px;font-size:26px;" method = "post" >
+        <input type="text" style="text-align:center;" size="1" name="l0" value="0">
+        <input type="text" style="text-align:center;" size="1" name="h1" value="1">
+        <input type="text" style="text-align:center;" size="1" name="h2" value="2">
+        <input type="text" style="text-align:center;" size="1" name="h3" value="3">
+        <input type="text" style="text-align:center;" size="1" name="h4" value="4">
+        <input type="text" style="text-align:center;" size="1" name="h5" value="5">
+        <input type="text" style="text-align:center;" size="1" name="h6" value="6">
+        <input type="text" style="text-align:center;" size="1" name="h7" value="7">
+        <br>
+        <input type="text" style="text-align:center;" size="1" name="l1" value="1">
+        <input type="text" style="text-align:center;" size="1" name="a11" value="">
+        <input type="text" style="text-align:center;" size="1" name="a12" value="">
+        <input type="text" style="text-align:center;" size="1" name="a13" value="">
+        <input type="text" style="text-align:center;" size="1" name="a14" value="">
+        <input type="text" style="text-align:center;" size="1" name="a15" value="">
+        <input type="text" style="text-align:center;" size="1" name="a16" value="">
+        <input type="text" style="text-align:center;" size="1" name="a17" value="">
+        <br>
+        <input type="text" style="text-align:center;" size="1" name="l2" value="2">
+        <input type="text" style="text-align:center;" size="1" name="a21" value="">
+        <input type="text" style="text-align:center;" size="1" name="a22" value="">
+        <input type="text" style="text-align:center;" size="1" name="a23" value="">
+        <input type="text" style="text-align:center;" size="1" name="a24" value="">
+        <input type="text" style="text-align:center;" size="1" name="a25" value="">
+        <input type="text" style="text-align:center;" size="1" name="a26" value="">
+        <input type="text" style="text-align:center;" size="1" name="a27" value="">
+        <br>
+        <input type="text" style="text-align:center;" size="1" name="l3" value="3">
+        <input type="text" style="text-align:center;" size="1" name="a31" value="">
+        <input type="text" style="text-align:center;" size="1" name="a32" value="">
+        <input type="text" style="text-align:center;" size="1" name="a33" value="">
+        <input type="text" style="text-align:center;" size="1" name="a34" value="">
+        <input type="text" style="text-align:center;" size="1" name="a35" value="">
+        <input type="text" style="text-align:center;" size="1" name="a36" value="">
+        <input type="text" style="text-align:center;" size="1" name="a37" value="">
+        <br>
+        <input type="text" style="text-align:center;" size="1" name="l4" value="4">
+        <input type="text" style="text-align:center;" size="1" name="a41" value="">
+        <input type="text" style="text-align:center;" size="1" name="a42" value="">
+        <input type="text" style="text-align:center;" size="1" name="a43" value="">
+        <input type="text" style="text-align:center;" size="1" name="a44" value="">
+        <input type="text" style="text-align:center;" size="1" name="a45" value="">
+        <input type="text" style="text-align:center;" size="1" name="a46" value="">
+        <input type="text" style="text-align:center;" size="1" name="a47" value="">
+        <br>
+        <input type="text" style="text-align:center;" size="1" name="l5" value="5">
+        <input type="text" style="text-align:center;" size="1" name="a51" value="">
+        <input type="text" style="text-align:center;" size="1" name="a52" value="">
+        <input type="text" style="text-align:center;" size="1" name="a53" value="">
+        <input type="text" style="text-align:center;" size="1" name="a54" value="">
+        <input type="text" style="text-align:center;" size="1" name="a55" value="">
+        <input type="text" style="text-align:center;" size="1" name="a56" value="">
+        <input type="text" style="text-align:center;" size="1" name="a57" value="">
+        <br>
+        <input type="text" style="text-align:center;" size="1" name="l6" value="6">
+        <input type="text" style="text-align:center;" size="1" name="a61" value="">
+        <input type="text" style="text-align:center;" size="1" name="a62" value="">
+        <input type="text" style="text-align:center;" size="1" name="a63" value="">
+        <input type="text" style="text-align:center;" size="1" name="a64" value="">
+        <input type="text" style="text-align:center;" size="1" name="a65" value="">
+        <input type="text" style="text-align:center;" size="1" name="a66" value="">
+        <input type="text" style="text-align:center;" size="1" name="a67" value="">
+        <br>
+        <input type="text" style="text-align:center;" size="1" name="l7" value="7">
+        <input type="text" style="text-align:center;" size="1" name="a71" value="">
+        <input type="text" style="text-align:center;" size="1" name="a72" value="">
+        <input type="text" style="text-align:center;" size="1" name="a73" value="">
+        <input type="text" style="text-align:center;" size="1" name="a74" value="">
+        <input type="text" style="text-align:center;" size="1" name="a75" value="">
+        <input type="text" style="text-align:center;" size="1" name="a76" value="">
+        <input type="text" style="text-align:center;" size="1" name="a77" value="">
+        <br>
+        </form>
+
+    </body>
+</html>

@@ -59,7 +59,7 @@ public class LinearRegression {
  
 		line.addDataPoint(new DataPoint(1, 136));
 		line.addDataPoint(new DataPoint(2, 143));
-		line.addDataPoint(new DataPoint(3, 132));
+		line.addDataPoint(new DataPoint(3, 145));
 		line.addDataPoint(new DataPoint(4, 142));
 		line.addDataPoint(new DataPoint(5, 147));
  
@@ -92,12 +92,14 @@ public class LinearRegression {
 	 */
 	static double theta[]= {0,0,0};
 	private static void printLine(RegressionLine line) {
-		System.out.println("\n回归线公式:  y = " + line.getA1() + "x + "
-				+ line.getA0());
-		System.out.println("误差：     R^2 = " + line.getR());
-		theta[0] = line.getA1();
-		theta[1] = line.getA0();
+		theta[0] = line.round(line.getA1(), 2);
+		theta[1] = line.getA0();	
 		theta[2] = line.getR();
+		System.out.println("\n回归线公式:  y = " + theta[0] + "x + "
+				+ theta[1]);
+		System.out.println("误差：     R^2 = " + theta[2]);
+		
+		
 	}
 	
 	

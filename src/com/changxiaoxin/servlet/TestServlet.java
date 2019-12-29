@@ -153,9 +153,11 @@ public class TestServlet extends HttpServlet {
 		
 		LinearRegression LR= new LinearRegression(); 
 		double theta[]=LR.main(null);
+		String theta0=new java.text.DecimalFormat("#.0").format(theta[0]);
+		String theta1=new java.text.DecimalFormat("#.0").format(theta[1]);
+		//String theta2=new java.text.DecimalFormat("#.00").format(theta[2]);
 		request.setAttribute( "regressionValue", "误差：     R^2 = " + theta[2]);
-		request.setAttribute("originalTrainSet", "回归线公式:  y = " + theta[0] + "x + " + 
-								+ theta[1]);
+		request.setAttribute("originalTrainSet", "回归线公式:  y = " + theta0 + "x + " + theta1 );
 		request.getRequestDispatcher("liner.jsp").forward(request, response);
 	}
 	//----------------------------------------------------------------------

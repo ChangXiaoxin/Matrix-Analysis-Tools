@@ -1,14 +1,11 @@
 package com.changxiaoxin.servlet;
 
-
 import java.io.IOException;
-import java.util.HashMap;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponse; 
 
 /**
  * Servlet implementation class TestServlet
@@ -153,12 +150,18 @@ public class TestServlet extends HttpServlet {
 	public void liner(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String trainset = request.getParameter("linerRegressionData");
-		request.setAttribute( "originalTrainSet", "训练集："+trainset );
-		request.setAttribute("regressionValue", "拟合曲线为:");
+		
+		LinearRegression LR= new LinearRegression(); 
+		double theta[]=LR.main(null);
+		request.setAttribute( "regressionValue", "误差：     R^2 = " + theta[2]);
+		request.setAttribute("originalTrainSet", "回归线公式:  y = " + theta[0] + "x + " + 
+								+ theta[1]);
 		request.getRequestDispatcher("liner.jsp").forward(request, response);
 	}
 	//----------------------------------------------------------------------
-
+	
+	
+	
 	
 	
 	

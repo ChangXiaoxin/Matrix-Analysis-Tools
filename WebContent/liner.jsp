@@ -41,7 +41,7 @@
 	</body>
 	
 	<script type="text/javascript">
-		
+		function liner(form){	
 			with(form){
 				if(linerRegressionData.value == ""){
 					alert("请输入训练集!!!");

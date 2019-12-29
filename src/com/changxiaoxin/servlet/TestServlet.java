@@ -41,7 +41,7 @@ public class TestServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		doGet(request, response);
-		String account = request.getParameter("account");
+		String matrixData = request.getParameter("matrixData");
 //		String psd = request.getParameter("psd");
 
 //		if(account.equals("admin") && psd.equals("123456")) {
@@ -69,7 +69,7 @@ public class TestServlet extends HttpServlet {
 //		request.getRequestDispatcher( "index.jsp" ).forward( request, response );
 
 
-		String str = account;
+		String str = matrixData;
 		String[] arr = str.split(",");
 		StringBuffer buffer = new StringBuffer();
 		double[] det1 = new double[arr.length];
@@ -85,8 +85,8 @@ public class TestServlet extends HttpServlet {
 		}
 		buffer=display(det);
 		double outcome = detcalc(det);
-		request.setAttribute("errorString", "行列式的值为:"+outcome);
-		request.setAttribute( "result", buffer );
+		request.setAttribute("betValue", "行列式的值为:"+outcome);
+		request.setAttribute( "originalMatrix", buffer );
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 

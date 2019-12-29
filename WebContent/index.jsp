@@ -2,31 +2,61 @@
     pageEncoding="UTF-8"%>
 
 <!DOCTYPE html >
-<html style="background:pink">
+<html>
 <head>
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
 	<meta charset="UTF-8">
 	<title>bet-calculate</title>
 	</head>
-
 <body>
-	<div id="timeShow" class="time1"></div>
-	<h1 style="text-align:center;">
-		行列式在线计算工具
-    </h1>
-	<p style="text-align:center;">
+	<div class = "header">
+		基于云的复杂计算系统
+    </div>
+    
+    <div class = "topnav">
+		    <a href = "#matrix">行列式计算</a>
+		    <a href = "#linerRegression">线性回归</a>
+    </div>
+    <div id = context>
+    </div>
+    
+    
+    <div id = "matrix">
+	<p class = "center">
 		请在下方输入框按顺序输入行列式的所有元素，各元素之间用逗号分开
+		</p>		
+	<form style="text-align:center;height:25px;font-size:26px;" action="TestServlet" method="post" onsubmit="return calc(this);">
+		<input style="text-align:center;height:25px;font-size:26px;" type="text" name="matrixData" size="40"/>
+			<br>
+		<input class="btn-blue" type="submit" value="计算" />
+			<br>
+    <p style="text-align:center;height:25px;font-size:26px;">
+			${originalMatrix}
+			<br>
+			${betValue}
 		</p>
+		</form>
+	</div>
+	<div id = "linerRegression">
+		
+	</div>
+	</body>
+	
 	<script type="text/javascript">
 		function calc(form){
 			with(form){
-				if(account.value == ""){
+				if(matrixData.value == ""){
 					alert("请输入行列式!!!");
 					return false;
 				}
 			}
 		}
 		</script>
+	
+	<!--  <div id="timeShow" class="footer"></div>
+	-->
+	
+			<!--
 	<script type="text/javascript">
      	var t = null;
     	t = setTimeout(time,1000);//开始执行
@@ -49,16 +79,5 @@
 		        t = setTimeout(time,1000); //设定定时器，循环执行
 	    }
 		</script>
-	<form style="text-align:center;height:25px;font-size:26px;" action="TestServlet" method="post" onsubmit="return calc(this);">
-		<input style="text-align:center;height:25px;font-size:26px;" type="text" name="account" size="40"/>
-			${accountErrorString }
-			<br>
-		<input class="btn-blue" type="submit" value="计算" />
-			<br>
-    <p style="text-align:center;height:25px;font-size:26px;">
-			${result}<br>
-			${errorString}
-		</p>
-		</form>
-	</body>
+		-->
 </html>

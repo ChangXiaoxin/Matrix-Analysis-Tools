@@ -37,6 +37,8 @@
 		</p>
 		</form>
 	</div>
+	
+	
 	<div id = "linerRegression">
 		
 	</div>

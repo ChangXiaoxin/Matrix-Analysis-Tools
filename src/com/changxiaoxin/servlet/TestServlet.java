@@ -2,6 +2,8 @@ package com.changxiaoxin.servlet;
 
 
 import java.io.IOException;
+import java.util.HashMap;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,21 +31,22 @@ public class TestServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String method = request.getParameter("meth");
-        if (method.endsWith("matrix")) {//任务单列表
+        if (method.endsWith("matrix")) {//矩阵计算
         	this.matrix(request, response);
-        }else if(method.endsWith("liner")) {//运单统计表
+        }else if(method.endsWith("liner")) {//线性回归
         	this.liner(request, response);
         }
 		
 	}
 	
+	//--------------------------<矩阵计算>-------------------------------
+	//------------------------------------------------------------------
 	public void matrix(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String str = request.getParameter("matrixData");
@@ -66,15 +69,7 @@ public class TestServlet extends HttpServlet {
 		request.setAttribute("betValue", "行列式的值为:"+outcome);
 		request.getRequestDispatcher("matrix.jsp").forward(request, response);
 	}
-	
-	public void liner(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String trainset = request.getParameter("linerRegressionData");
-		request.setAttribute( "originalTrainSet", "训练集："+trainset );
-		request.setAttribute("regressionValue", "拟合曲线为:");
-		request.getRequestDispatcher("liner.jsp").forward(request, response);
-	}
-
+	//------------------------------------------------------------------
 	public static double detcalc(double [][]det){
 		int n = det.length;
 		double prodL=1,prodU=1;
@@ -148,4 +143,52 @@ public class TestServlet extends HttpServlet {
 		}
 		return buffer;
 	}
+	//---------------------------------------------------------------------
+	//------------------------------</矩阵计算>------------------------------
+	
+	
+	
+	//------------------------------<线性回归>------------------------------
+	//--------------------------------------------------------------------
+	public void liner(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String trainset = request.getParameter("linerRegressionData");
+		request.setAttribute( "originalTrainSet", "训练集："+trainset );
+		request.setAttribute("regressionValue", "拟合曲线为:");
+		request.getRequestDispatcher("liner.jsp").forward(request, response);
+	}
+	//----------------------------------------------------------------------
+	
+	public class House_data {
+		   double house_size;
+		   double house_price;
+		   public double getHouse_size() {
+		      return house_size;
+		   }
+		   public void setHouse_size(double house_size) {
+		      this.house_size = house_size;
+		   }
+		   public double getHouse_price() {
+		      return house_price;
+		   }
+		   public void setHouse_price(double house_price) {
+		      this.house_price = house_price;
+		   }
+		}
+
+	public class DataSet_self extends HashMap<Double, House_data>{
+		   public static double number = 0;
+		   public static double getNumber() {
+		      return number;
+		   }
+		   public void addData(double house_size,double house_price){
+			   House_data housedata = new House_data();
+			   housedata.setHouse_price(house_price);
+			   housedata.setHouse_size(house_size);
+//		  	   this.put(number++, housedata);
+			   this.put(housedata.house_size, housedata);
+		   }
+	}
+	//------------------------------------------------------------------
+	//---------------------------</线性回归>-----------------------------
 }

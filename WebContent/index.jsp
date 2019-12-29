@@ -20,7 +20,7 @@
     </div>
     
     <div id = context>
-    	<p>
+    	<p class = "center">
     	这里是项目简介，使用说明巴拉巴拉...
     	</p>
     </div>

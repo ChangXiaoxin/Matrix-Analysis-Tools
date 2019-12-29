@@ -27,12 +27,7 @@ public class TestServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String name = request.getParameter("name");
-		String sex = request.getParameter("sex");
-		String age = request.getParameter("age");
-		String str = "{\"name\":\"" + name + "\",\"sex\":\"" + sex + "\",\"age\":" + age + "}";
-		response.getWriter().write(str);
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 	}
 
 	/**
@@ -40,36 +35,18 @@ public class TestServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		doGet(request, response);
-		String matrixData = request.getParameter("matrixData");
-//		String psd = request.getParameter("psd");
-
-//		if(account.equals("admin") && psd.equals("123456")) {
-//			request.getRequestDispatcher("test1.jsp").forward(request, response);
-//		}else if(account.equals("admin") && !psd.equals("123456")) {
-//			request.setAttribute("psdErrorString", "password is error");
-//			request.getRequestDispatcher("index.jsp").forward(request, response);
-//		}else if(!account.equals("admin") && psd.equals("123456")) {
-//			request.setAttribute("accountErrorString", "account is error");
-//			request.getRequestDispatcher("index.jsp").forward(request, response);
-//		}else {
-//			request.setAttribute("errorString", "login error");
-//			request.getRequestDispatcher("index.jsp").forward(request, response);
-//		}
-
-
-//		StringBuffer buffer = new StringBuffer();
-//		buffer.append( "<font size=4 color=blue align=center>交易记录</font>" );
-//		buffer.append( "<form name=\"form1\" method=\"post\">" );
-//		//其它代码略
-//		//……
-//		buffer.append( "</form>" );
-//
-//		request.setAttribute( "result", buffer );
-//		request.getRequestDispatcher( "index.jsp" ).forward( request, response );
-
-
-		String str = matrixData;
+		String method = request.getParameter("meth");
+        if (method.endsWith("matrix")) {//任务单列表
+        	this.matrix(request, response);
+        }else if(method.endsWith("liner")) {//运单统计表
+        	this.liner(request, response);
+        }
+		
+	}
+	
+	public void matrix(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String str = request.getParameter("matrixData");
 		String[] arr = str.split(",");
 		StringBuffer buffer = new StringBuffer();
 		double[] det1 = new double[arr.length];
@@ -85,9 +62,17 @@ public class TestServlet extends HttpServlet {
 		}
 		buffer=display(det);
 		double outcome = detcalc(det);
-		request.setAttribute("betValue", "行列式的值为:"+outcome);
 		request.setAttribute( "originalMatrix", buffer );
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		request.setAttribute("betValue", "行列式的值为:"+outcome);
+		request.getRequestDispatcher("matrix.jsp").forward(request, response);
+	}
+	
+	public void liner(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String trainset = request.getParameter("linerRegressionData");
+		request.setAttribute( "originalTrainSet", "训练集："+trainset );
+		request.setAttribute("regressionValue", "拟合曲线为:");
+		request.getRequestDispatcher("liner.jsp").forward(request, response);
 	}
 
 	public static double detcalc(double [][]det){

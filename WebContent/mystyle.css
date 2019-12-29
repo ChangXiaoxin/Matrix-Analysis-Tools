@@ -37,6 +37,21 @@
 
 
 /* 内容 */
+.form {
+	text-align: center;
+	height: 25px;
+	font-size: 26px;
+	
+}
+#matrix {
+	height: 500px;
+	
+}
+#linerRegression {
+	position: relative;
+	height: 500px;
+	top: 10px;
+}
 
 /* 响应式布局 - 小于 600 px 时改为上下布局 */
 @media screen and (max-width: 1000px) {

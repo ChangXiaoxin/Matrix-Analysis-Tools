@@ -36,8 +36,12 @@ public class TestServlet extends HttpServlet {
 		String method = request.getParameter("meth");
         if (method.endsWith("matrix")) {//矩阵计算
         	this.matrix(request, response);
-        }else if(method.endsWith("liner")) {//线性回归
-        	this.liner(request, response);
+        }else if(method.endsWith("linear")) {//线性回归
+        	this.linear(request, response);
+        }else if(method.endsWith("match")) {//阻抗匹配
+        	this.impedanceMatch(request,response);
+        }else if(method.endsWith("filter")) {//滤波设计
+        	this.filter(request, response);
         }
 		
 	}
@@ -147,18 +151,17 @@ public class TestServlet extends HttpServlet {
 	
 	//------------------------------<线性回归>------------------------------
 	//--------------------------------------------------------------------
-	public void liner(HttpServletRequest request, HttpServletResponse response)
+	public void linear(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String trainset = request.getParameter("linerRegressionData");
+		String trainset = request.getParameter("linearRegressionData");
 		
-		LinearRegression LR= new LinearRegression(); 
-		double theta[]=LR.main(null);
+		double theta[]=LinearRegression.main(null);
 		String theta0=new java.text.DecimalFormat("#.0").format(theta[0]);
 		String theta1=new java.text.DecimalFormat("#.0").format(theta[1]);
 		//String theta2=new java.text.DecimalFormat("#.00").format(theta[2]);
 		request.setAttribute( "regressionValue", "误差：     R^2 = " + theta[2]);
 		request.setAttribute("originalTrainSet", "回归线公式:  y = " + theta0 + "x + " + theta1 );
-		request.getRequestDispatcher("liner.jsp").forward(request, response);
+		request.getRequestDispatcher("linear.jsp").forward(request, response);
 	}
 	//----------------------------------------------------------------------
 	
@@ -169,4 +172,32 @@ public class TestServlet extends HttpServlet {
 	
 	//------------------------------------------------------------------
 	//---------------------------</线性回归>-----------------------------
+	
+	//----------------------------<阻抗匹配>-----------------------------
+	//-----------------------------------------------------------------
+	public void impedanceMatch(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+	}
+	//------------------------------------------------------------------
+	
+	
+	
+	//------------------------------------------------------------------
+	//-----------------------------</阻抗匹配>----------------------------
+	
+	
+	
+	//------------------------------<滤波设计>----------------------------
+	//-------------------------------------------------------------------
+	public void filter(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+	}
+	//-------------------------------------------------------------------
+	
+	
+	
+	//---------------------------------------------------------------------
+	//------------------------------</滤波设计>-----------------------------
 }

@@ -6,11 +6,11 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
 	<meta charset="UTF-8">
-	<title>Matrix</title>
+	<title>Filter</title>
 	</head>
 <body>
 	<div class = "header">
-		行列式矩阵计算工具
+		滤波器设计工具
     </div>
        <div id = context>
     </div>
@@ -22,11 +22,11 @@
 		    <a href = "filter.jsp">滤波器设计</a>
     </div>
     
-    <div id = "matrix">
+    <div id = "filter">
 	<p class = "center">
-		请在下方输入框按顺序输入行列式的所有元素，各元素之间用逗号分开
+		滤波器设计输入	
 		</p>		
-	<form class = "form" action="TestServlet?meth=matrix" method="post" onsubmit="return calc(this);">
+	<form class = "form" action="TestServlet?meth=filter" method="post" onsubmit="return calc(this);">
 		<input class = "form" type="text" name="matrixData" size="40"/>
 			<br>
 		<input class="btn-blue" type="submit" value="计算" />

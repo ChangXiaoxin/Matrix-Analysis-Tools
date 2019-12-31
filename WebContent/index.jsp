@@ -6,7 +6,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
 	<meta charset="UTF-8">
-	<title>bet-calculate</title>
+	<title>Cherilee</title>
 	</head>
 <body>
 	<div class = "header">
@@ -16,7 +16,9 @@
     <div class = "topnav">
     		<a href = "index.jsp">首页</a>
 		    <a href = "matrix.jsp">行列式计算</a>
-		    <a href = "liner.jsp">线性回归</a>
+		    <a href = "linear.jsp">线性回归</a>
+		    <a href = "impedanceMatch.jsp">阻抗匹配</a>
+		    <a href = "filter.jsp">滤波器设计</a>
     </div>
     
     <div id = context>

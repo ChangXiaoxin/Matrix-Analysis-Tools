@@ -21,16 +21,16 @@
 		    <a href = "impedanceMatch.jsp">阻抗匹配</a>
 		    <a href = "filter.jsp">滤波器设计</a>
     </div>
-    
+
     <div id = "matrix">
 	<p class = "center">
-		请在下方输入框按顺序输入行列式的所有元素，各元素之间用逗号分开
-		</p>		
+		请在下方输入框按顺序输入行列式的所有元素，各元素之间用英文逗号分开
+		</p>
 	<form class = "form" action="TestServlet?meth=matrix" method="post" onsubmit="return calc(this);">
-		<input class = "form" type="text" name="matrixData" size="40"/>
-			<br>
+		<!--<TEXTAREA class = "form" type="text" rows = "3" name="matrixData" size="40"></TEXTAREA>-->
+                <TD><TEXTAREA name="matrixData" rows=3 cols=36>1,2,3,4</TEXTAREA>
+                <br>
 		<input class="btn-blue" type="submit" value="计算" />
-			<br>
     <p class = "form">
 			${originalMatrix}
 			<br>
@@ -38,11 +38,11 @@
 		</p>
 		</form>
 	</div>
-	
 
-	
+
+
 	</body>
-	
+
 	<script type="text/javascript">
 		function calc(form){
 			with(form){

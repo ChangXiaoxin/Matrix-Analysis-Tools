@@ -26,12 +26,14 @@
 
 	<div id = "impedanceMatch">
 		<p class = "center">
-		电磁波阻抗匹配输入
+		    请在下方输入所有参数的值
 		</p>
 	<form class = "form" action="TestServlet?meth=match" method="post" onsubmit="return linear(this);">
-		<input class = "form" type="text" name="linearRegressionData" size="40"/>
-			<br>
-		<input class="btn-blue" type="submit" value="拟合" />
+		Z0:  <input name ="Z0R" style="width:50px;font-size: 24px;height:25px"> + </input><input style="width:50px;font-size: 24px; height:25px" name="Z0I"> j</input>	<br>
+        Zl :  <input name="ZlR" style="width:50px;font-size: 24px;height:25px"> + </input><input style="width:50px;font-size: 24px; height:25px" name="ZlI"> j</input>  <br>
+        l  : <input name="lent" style="width:130px;font-size: 24px; height:25px"></input>    <br>
+        <br>
+        <input class="btn-blue" type="submit" value="计算" />
 			<br>
     <p class = "form">
 			${originalTrainSet}
@@ -45,8 +47,8 @@
 	<script type="text/javascript">
 		function linear(form){
 			with(form){
-				if(linearRegressionData.value == ""){
-					alert("请输入训练集!!!");
+				if(Z0I.value == ""||Z0R.value ==""||ZlR.value == ""||ZlI.value==""||l.value==""){
+					alert("请输入所有参数!!!");
 					return false;
 				}
 			}

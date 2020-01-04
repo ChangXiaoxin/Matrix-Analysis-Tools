@@ -192,7 +192,20 @@ public class TestServlet extends HttpServlet {
 	//-------------------------------------------------------------------
 	public void filter(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+			String Sfs = request.getParameter("Fs");
+			String Sfc = request.getParameter("Fc");
+			String out2="";
+			int fs =Integer.parseInt(Sfs);
 
+			int fc =Integer.parseInt(Sfc) ;
+
+			double[] out = fsd_LPF.fsd_LPF(fs, fc);
+			for(int i=0;i<128;i++){
+			String out0=new java.text.DecimalFormat("#.000000").format(out[i]);
+			out2 = out2+"<br>"+out0;
+			}
+			request.setAttribute("result",out2);
+			request.getRequestDispatcher("filter.jsp").forward(request, response);
 	}
 	//-------------------------------------------------------------------
 

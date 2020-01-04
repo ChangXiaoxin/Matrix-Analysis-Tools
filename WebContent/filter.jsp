@@ -23,31 +23,32 @@
     </div>
 
     <div id = "filter">
-	<p class = "center">
-		滤波器设计输入
+		<p class = "center">
+		    请在下方输入所有参数的值
 		</p>
-	<form class = "form" action="TestServlet?meth=filter" method="post" onsubmit="return calc(this);">
-		<input class = "form" type="text" name="matrixData" size="40"/>
-			<br>
-		<input class="btn-blue" type="submit" value="计算" />
-			<br>
+	<form class = "form" action="TestServlet?meth=filter" method="post" onsubmit="return filter(this);">
+		Fs(采样频率):  <input name ="Fs" style="width:100px;font-size: 24px;height:25px">	<br>
+        Fc(截止频率):  <input name="Fc" style="width:100px;font-size: 24px;height:25px"> <br>
+        <br>
+        <input class="btn-blue" type="submit" value="计算" />
+
     <p class = "form">
-			${originalMatrix}
-			<br>
-			${betValue}
+			${result}
+
 		</p>
 		</form>
 	</div>
 
 
 
+
 	</body>
 
 	<script type="text/javascript">
-		function calc(form){
+		function filter(form){
 			with(form){
-				if(matrixData.value == ""){
-					alert("请输入行列式!!!");
+				if(Fs.value == ""||Fc.value==""){
+					alert("请输入参数!!!");
 					return false;
 				}
 			}

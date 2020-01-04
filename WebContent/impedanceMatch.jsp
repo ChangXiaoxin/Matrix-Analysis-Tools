@@ -10,24 +10,24 @@
 	</head>
 <body>
 	<div class = "header">
-		电磁波阻抗匹配
+		传输线等效阻抗计算
     </div>
      <div class = "topnav">
     		<a href = "index.jsp">首页</a>
 		    <a href = "matrix.jsp">行列式计算</a>
 		    <a href = "linear.jsp">线性回归</a>
-		    <a href = "impedanceMatch.jsp">阻抗匹配</a>
+		    <a href = "impedanceMatch.jsp">等效阻抗计算</a>
 		    <a href = "filter.jsp">滤波器设计</a>
-    </div> 
-   
+    </div>
+
     <div id = context>
     </div>
-    
-    
+
+
 	<div id = "impedanceMatch">
 		<p class = "center">
 		电磁波阻抗匹配输入
-		</p>		
+		</p>
 	<form class = "form" action="TestServlet?meth=match" method="post" onsubmit="return linear(this);">
 		<input class = "form" type="text" name="linearRegressionData" size="40"/>
 			<br>
@@ -41,9 +41,9 @@
 		</form>
 	</div>
 	</body>
-	
+
 	<script type="text/javascript">
-		function linear(form){	
+		function linear(form){
 			with(form){
 				if(linearRegressionData.value == ""){
 					alert("请输入训练集!!!");
@@ -52,5 +52,5 @@
 			}
 		}
 		</script>
-	
+
 </html>

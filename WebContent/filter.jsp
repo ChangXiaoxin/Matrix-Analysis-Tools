@@ -18,14 +18,14 @@
       		<a href = "index.jsp">首页</a>
 		    <a href = "matrix.jsp">行列式计算</a>
 		    <a href = "linear.jsp">线性回归</a>
-		    <a href = "impedanceMatch.jsp">阻抗匹配</a>
+		    <a href = "impedanceMatch.jsp">等效阻抗计算</a>
 		    <a href = "filter.jsp">滤波器设计</a>
     </div>
-    
+
     <div id = "filter">
 	<p class = "center">
-		滤波器设计输入	
-		</p>		
+		滤波器设计输入
+		</p>
 	<form class = "form" action="TestServlet?meth=filter" method="post" onsubmit="return calc(this);">
 		<input class = "form" type="text" name="matrixData" size="40"/>
 			<br>
@@ -38,11 +38,11 @@
 		</p>
 		</form>
 	</div>
-	
 
-	
+
+
 	</body>
-	
+
 	<script type="text/javascript">
 		function calc(form){
 			with(form){

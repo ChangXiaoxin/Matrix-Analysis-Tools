@@ -32,7 +32,7 @@ function calculate() {
 	a=ymean-slope*xmean;
 	slope=Math.round(slope*10000)/10000;
 	a=Math.round(a*10000)/10000;
-	y=a+' + '+slope+' x';
+	y='('+a+') + ('+slope+') x';
 	document.getElementById("res_area").style.visibility = "visible";
 	document.getElementById("result1").value = arr.length;
 	document.getElementById("result2").value = slope;

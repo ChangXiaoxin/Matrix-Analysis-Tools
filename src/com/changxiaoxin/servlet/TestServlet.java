@@ -5,7 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse; 
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class TestServlet
@@ -43,9 +43,9 @@ public class TestServlet extends HttpServlet {
         }else if(method.endsWith("filter")) {//滤波设计
         	this.filter(request, response);
         }
-		
+
 	}
-	
+
 	//--------------------------<矩阵计算>-------------------------------
 	//------------------------------------------------------------------
 	public void matrix(HttpServletRequest request, HttpServletResponse response)
@@ -146,15 +146,15 @@ public class TestServlet extends HttpServlet {
 	}
 	//---------------------------------------------------------------------
 	//------------------------------</矩阵计算>------------------------------
-	
-	
-	
+
+
+
 	//------------------------------<线性回归>------------------------------
 	//--------------------------------------------------------------------
 	public void linear(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String trainset = request.getParameter("linearRegressionData");
-		
+
 		double theta[]=LinearRegression.main(null);
 		String theta0=new java.text.DecimalFormat("#.0").format(theta[0]);
 		String theta1=new java.text.DecimalFormat("#.0").format(theta[1]);
@@ -164,40 +164,40 @@ public class TestServlet extends HttpServlet {
 		request.getRequestDispatcher("linear.jsp").forward(request, response);
 	}
 	//----------------------------------------------------------------------
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	//------------------------------------------------------------------
 	//---------------------------</线性回归>-----------------------------
-	
+
 	//----------------------------<阻抗匹配>-----------------------------
 	//-----------------------------------------------------------------
 	public void impedanceMatch(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 	}
 	//------------------------------------------------------------------
-	
-	
-	
+
+
+
 	//------------------------------------------------------------------
 	//-----------------------------</阻抗匹配>----------------------------
-	
-	
-	
+
+
+
 	//------------------------------<滤波设计>----------------------------
 	//-------------------------------------------------------------------
 	public void filter(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 	}
 	//-------------------------------------------------------------------
-	
-	
-	
+
+
+
 	//---------------------------------------------------------------------
 	//------------------------------</滤波设计>-----------------------------
 }

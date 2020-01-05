@@ -10,6 +10,9 @@
 	text-align: center;
 
 }
+.code {
+    margin-left: 40%;
+}
 /* 导航条 */
 .topnav {
   overflow: hidden;

@@ -23,6 +23,18 @@
     </div>
 
     <div id = "filter">
+    <p class="code">Matlab现实代码：<br>
+n=linspace(0,pi,1000);%用于产生0,pi之间的1000点行矢量<br>
+H=freqz(h,[1],n);%滤波器的幅频特性图<br>
+subplot(2,1,1);<br>
+plot(n/pi,abs(H));<br>
+xlabel('归一化角频率');ylabel('|H(e^(jw))|');title('幅频响应');<br>
+axis([0 1 0 1.2]);<br>
+subplot(2,1,2);<br>
+plot(n/pi,20*log10(abs(H)));%参数分别是归一化频率与幅值<br>
+xlabel('归一化角频率');ylabel('20log|H(e^(jw))|');title('幅频响应（dB）');<br>
+axis([0 1 -100 20]);<br>
+            <p>
 		<p class = "center">
 		    请在下方输入所有参数的值
 		</p>

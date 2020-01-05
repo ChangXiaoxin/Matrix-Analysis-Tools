@@ -52,6 +52,10 @@
 	height: 500px;
 
 }
+#context{
+    margin-left: 30%;
+    margin-right: 30%;
+}
 #linearRegression {
 	position: relative;s
 	top: 10px;
@@ -72,7 +76,10 @@
   .topnav {
   	margin: 0px;
   }
-
+#context{
+    margin-left: 0px;
+    margin-right: 0px;
+}
   #linearRegression {
       margin-left: 20%;
       margin-right: 20%;

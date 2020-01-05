@@ -25,6 +25,7 @@
 
 
 	<div id = "impedanceMatch">
+        <img style="margin-left:20%;" width="800px" height="200px" src="filter.jpg" alt="fiter">
 		<p class = "center">
 		    请在下方输入所有参数的值
 		</p>

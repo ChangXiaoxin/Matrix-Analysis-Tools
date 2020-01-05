@@ -1,5 +1,5 @@
-package com.changxiaoxin.servlet;
 
+package com.changxiaoxin.servlet;
 public class DataPoint {
 	 
 	/** the x value */

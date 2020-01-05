@@ -31,7 +31,8 @@ public class TestServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String method = request.getParameter("meth");
         if (method.endsWith("matrix")) {//矩阵计算
@@ -153,19 +154,19 @@ public class TestServlet extends HttpServlet {
 	//--------------------------------------------------------------------
 	public void linear(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String trainset = request.getParameter("linearRegressionData");
 
-		double theta[]=LinearRegression.main(null);
-		String theta0=new java.text.DecimalFormat("#.0").format(theta[0]);
-		String theta1=new java.text.DecimalFormat("#.0").format(theta[1]);
-		//String theta2=new java.text.DecimalFormat("#.00").format(theta[2]);
-		request.setAttribute( "regressionValue", "误差：     R^2 = " + theta[2]);
-		request.setAttribute("originalTrainSet", "回归线公式:  y = " + theta0 + "x + " + theta1 );
-		request.getRequestDispatcher("linear.jsp").forward(request, response);
+
+					String trainset = request.getParameter("linearRegressionData");
+
+					double theta[]=LinearRegression.main(null);
+					String theta0=new java.text.DecimalFormat("#.0").format(theta[0]);
+					String theta1=new java.text.DecimalFormat("#.0").format(theta[1]);
+					//String theta2=new java.text.DecimalFormat("#.00").format(theta[2]);
+					request.setAttribute( "regressionValue", "误差：     R^2 = " + theta[2]);
+					request.setAttribute("originalTrainSet", "回归线公式:  y = " + theta0 + "x + " + theta1 );
+					request.getRequestDispatcher("linear.jsp").forward(request, response);
 	}
 	//----------------------------------------------------------------------
-
-
 
 
 
@@ -177,7 +178,29 @@ public class TestServlet extends HttpServlet {
 	//-----------------------------------------------------------------
 	public void impedanceMatch(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String SZlr = request.getParameter("ZlR");
+		String SZli = request.getParameter("ZlI");
+		String SZ0	= request.getParameter("Z0R");
+		String Sf = request.getParameter("freq");
 
+		double Zlr = Double.parseDouble(SZlr);
+		double Zli = Double.parseDouble(SZli);
+		double Z0 = Double.parseDouble(SZ0);
+		double f = Double.parseDouble(Sf);
+		double[] result=match.main(Zlr,Zli,Z0,f);
+		String[] ri={"","","","",""};
+
+
+		for(int i=0;i<5;i++){
+		 ri[i]=new java.text.DecimalFormat("#0.000000").format(result[i]);
+		}
+		String resultZ0l="Z0l = "+ri[0];
+		String resultRef="Ref = "+ri[1]+" + ("+ri[2]+") j";
+		String resultVSWR="VSWR = "+ri[3];
+		String resultl="l = "+ri[4];
+
+		request.setAttribute("result",resultZ0l+"<br>"+resultRef+"<br>"+resultVSWR+"<br>"+resultl);
+		request.getRequestDispatcher("impedanceMatch.jsp").forward(request, response);
 	}
 	//------------------------------------------------------------------
 
@@ -201,7 +224,7 @@ public class TestServlet extends HttpServlet {
 
 			double[] out = fsd_LPF.fsd_LPF(fs, fc);
 			for(int i=0;i<128;i++){
-			String out0=new java.text.DecimalFormat("#.000000").format(out[i]);
+			String out0=new java.text.DecimalFormat("#0.000000").format(out[i]);
 			out2 = out2+"<br>"+out0;
 			}
 			request.setAttribute("result",out2);

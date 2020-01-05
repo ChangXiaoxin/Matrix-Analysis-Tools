@@ -17,13 +17,13 @@
     		<a href = "index.jsp">首页</a>
 		    <a href = "matrix.jsp">行列式计算</a>
 		    <a href = "linear.jsp">线性回归</a>
-		    <a href = "impedanceMatch.jsp">等效阻抗计算</a>
+		    <a href = "impedanceMatch.jsp">阻抗匹配计算</a>
 		    <a href = "filter.jsp">滤波器设计</a>
     </div>
 
     <div id = context>
     	<p class = "center">
-    	这里是项目简介，使用说明巴拉巴拉...
+    	//这里是项目简介，使用说明
     	</p>
     </div>
 

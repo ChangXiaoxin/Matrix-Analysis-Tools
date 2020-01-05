@@ -10,7 +10,7 @@
 	</head>
 <body>
 	<div class = "header">
-		行列式矩阵计算工具
+		行列式计算工具
     </div>
        <div id = context>
     </div>
@@ -18,9 +18,9 @@
       		<a href = "index.jsp">首页</a>
 		    <a href = "matrix.jsp">行列式计算</a>
 		    <a href = "linear.jsp">线性回归</a>
-		    <a href = "impedanceMatch.jsp">等效阻抗计算</a>
+		    <a href = "impedanceMatch.jsp">阻抗匹配计算</a>
 		    <a href = "filter.jsp">滤波器设计</a>
-    </div>
+      </div>
 
     <div id = "matrix">
 	<p class = "center">

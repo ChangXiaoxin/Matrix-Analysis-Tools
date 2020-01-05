@@ -10,13 +10,13 @@
 	</head>
 <body>
 	<div class = "header">
-		传输线等效阻抗计算
+		传输线阻抗匹配计算
     </div>
      <div class = "topnav">
     		<a href = "index.jsp">首页</a>
 		    <a href = "matrix.jsp">行列式计算</a>
 		    <a href = "linear.jsp">线性回归</a>
-		    <a href = "impedanceMatch.jsp">等效阻抗计算</a>
+		    <a href = "impedanceMatch.jsp">阻抗匹配计算</a>
 		    <a href = "filter.jsp">滤波器设计</a>
     </div>
 
@@ -30,16 +30,15 @@
 		    请在下方输入所有参数的值
 		</p>
 	<form class = "form" action="TestServlet?meth=match" method="post" onsubmit="return linear(this);">
-		Z0:  <input name ="Z0R" style="width:50px;font-size: 24px;height:25px"> + </input><input style="width:50px;font-size: 24px; height:25px" name="Z0I"> j</input>	<br>
+		Z0:  <input name ="Z0R" style="width:130px;font-size: 24px;height:25px"></input>	<br>
         Zl :  <input name="ZlR" style="width:50px;font-size: 24px;height:25px"> + </input><input style="width:50px;font-size: 24px; height:25px" name="ZlI"> j</input>  <br>
-        l  : <input name="lent" style="width:130px;font-size: 24px; height:25px"></input>    <br>
+        f  : <input name="freq" style="width:130px;font-size: 24px; height:25px"></input>    <br>
         <br>
         <input class="btn-blue" type="submit" value="计算" />
-			<br>
+
     <p class = "form">
-			${originalTrainSet}
-			<br>
-			${regressionValue}
+			${result}
+
 		</p>
 		</form>
 	</div>

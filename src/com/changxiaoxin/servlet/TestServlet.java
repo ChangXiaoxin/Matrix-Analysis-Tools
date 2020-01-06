@@ -199,7 +199,7 @@ public class TestServlet extends HttpServlet {
 		String resultVSWR="VSWR = "+ri[3];
 		String resultl="l = "+ri[4];
 
-		request.setAttribute("result",resultZ0l+"<br>"+resultRef+"<br>"+resultVSWR+"<br>"+resultl);
+		request.setAttribute("result",resultZ0l+" Om<br>"+resultRef+"<br>"+resultVSWR+"<br>"+resultl+" m");
 		request.getRequestDispatcher("impedanceMatch.jsp").forward(request, response);
 	}
 	//------------------------------------------------------------------

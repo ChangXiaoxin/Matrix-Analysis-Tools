@@ -47,7 +47,7 @@
 	<script type="text/javascript">
 		function linear(form){
 			with(form){
-				if(Z0I.value == ""||Z0R.value ==""||ZlR.value == ""||ZlI.value==""||l.value==""){
+				if(Z0R.value ==""||ZlR.value == ""||ZlI.value==""||freq.value==""){
 					alert("请输入所有参数!!!");
 					return false;
 				}

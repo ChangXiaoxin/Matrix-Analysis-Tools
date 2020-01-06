@@ -30,9 +30,9 @@
 		    请在下方输入所有参数的值
 		</p>
 	<form class = "form" action="TestServlet?meth=match" method="post" onsubmit="return linear(this);">
-		Z0:  <input name ="Z0R" style="width:130px;font-size: 24px;height:25px"></input>	<br>
-        Zl :  <input name="ZlR" style="width:50px;font-size: 24px;height:25px"> + </input><input style="width:50px;font-size: 24px; height:25px" name="ZlI"> j</input>  <br>
-        f  : <input name="freq" style="width:130px;font-size: 24px; height:25px"></input>    <br>
+		Z0:  <TEXTAREA name ="Z0R" style="width:180px;font-size: 24px;height:25px">150</TEXTAREA>	<br>
+        Zl :  <textarea name="ZlR" style="width:80px;font-size: 24px;height:25px">250</textarea> + <textarea style="width:80px;font-size: 24px; height:25px" name="ZlI">100</textarea> j <br>
+        f  : <textarea name="freq" style="width:180px;font-size: 24px; height:25px">200000000</textarea>    <br>
         <br>
         <input class="btn-blue" type="submit" value="计算" />
 
